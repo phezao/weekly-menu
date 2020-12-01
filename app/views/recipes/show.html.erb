@@ -1,0 +1,17 @@
+<h1><%= @recipe.name %></h1>
+
+<% unless @recipe.link.empty? %>
+    <p>Link para a receita: <%= @recipe.link %></p>
+<% end %>
+
+<h1>Ingredientes</h1>
+<% @recipe.ingredients.each do |ingredient| %>
+    <%= ingredient.name %>
+<% end %>
+
+<p>Adicionar para o menu da semana</p>
+
+<%= link_to "Editar receita", edit_recipe_path(@recipe) %>
+<%= link_to "Deletar", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Todas as receitas", recipes_path %>
+

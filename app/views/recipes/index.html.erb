@@ -1,0 +1,15 @@
+<h1>Todas as receitas</h1>
+
+<%= link_to "Adicionar receita", new_recipe_path %>
+
+<ul>
+<% @recipes.each do |recipe| %>
+
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+
+<% end %>
+
+</ul>
+
+
+<%= link_to "Ir ao menu da semana", root_path %>
