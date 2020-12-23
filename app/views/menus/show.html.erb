@@ -1,35 +1,43 @@
-<div class="flex items-center">
+<div class="flex items-end sm:items-center">
     <h1 class="text-4xl font-bold my-6">Menu da semana</h1>
-
-    <%= link_to "Gerar menu", "#", class: "mx-4 bg-blue-400 rounded-md text-white h-10 py-2 px-4 hover:no-underline hover:bg-blue-500" %>
-
-    
-    <% unless @menu_recipes.empty? %>
-        <%= link_to "Editar menu", "#", class: " mr-4 bg-yellow-400 rounded-md h-10 py-2 px-4 hover:no-underline hover:bg-yellow-500 hover:text-black"  %>
-
-        <%= link_to "Lista de supermercado", "#", class: "bg-indigo-400 rounded-md h-10 py-2 px-4 text-white hover:no-underline hover:bg-indigo-500"  %>        
-    <% end %>
-
-
 </div>
 
-<table class="w-100">
-    <thead>
-        <tr class="text-center">
-            <th class="font-semibold rounded bg-gray-200 py-2">Domingo</th>
-            <th class="font-semibold rounded bg-gray-200 py-2">Segunda</th>
-            <th class="font-semibold rounded bg-gray-200 py-2">Terça</th>
-            <th class="font-semibold rounded bg-gray-200 py-2">Quarta</th>
-            <th class="font-semibold rounded bg-gray-200 py-2">Quinta</th>
-            <th class="font-semibold rounded bg-gray-200 py-2">Sexta</th>
-            <th class="font-semibold rounded bg-gray-200 py-2">Sabado</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-         <% @menu_recipes.each do |recipe| %>
-            <td><%= recipe.name %></td>
-         <% end %>
-        </tr>
-    </tbody>
-</table>
+
+<div class="flex justify-between text-center">
+    <div class="w-20 text-sm bg-gray-300 rounded">Domingo</div>
+    <div class="w-20 text-sm bg-gray-300 rounded">Segunda</div>
+    <div class="w-20 text-sm bg-gray-300 rounded">Terça</div>
+</div>
+
+<div class="flex justify-between mb-4 text-center">
+    <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 1</div>
+    <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 2</div>
+    <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 3</div>
+</div>
+
+<div class="flex justify-between text-center">
+    <div class="w-20 text-sm bg-gray-300 rounded">Quarta</div>
+    <div class="w-20 text-sm bg-gray-300 rounded">Quinta</div>
+    <div class="w-20 text-sm bg-gray-300 rounded">Sexta</div>
+</div>
+
+<div class="flex justify-between mb-4 text-center">
+    <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 4</div>
+    <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 5</div>
+    <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 6</div>
+</div>
+
+
+<div class="w-20 text-sm text-center bg-gray-300 rounded">Sabado</div>
+<div class="w-20 text-xs bg-gray-200 h-12 pt-2 text-center">receita 7</div>
+
+    <div class="flex mt-4 justify-around">
+    <%= link_to "Gerar menu", "#", class: "mb-4 bg-blue-400 rounded-md text-white text-xs sm:h-10 py-2 px-4 hover:no-underline hover:bg-blue-500" %>
+
+    
+    <% if @menu_recipes %>
+        <%= link_to "Editar menu", "#", class: "text-xs mb-4 mx-2 bg-yellow-400 rounded-md sm:h-10 py-2 px-4 hover:no-underline hover:bg-yellow-500 hover:text-black"  %>
+
+        <%= link_to "Lista de supermercado", "#", class: "text-xs mb-4 bg-indigo-400 rounded-md sm:h-10 py-2 px-4 text-white hover:no-underline hover:bg-indigo-500"  %>        
+    <% end %>
+    </div>
