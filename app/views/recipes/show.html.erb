@@ -1,7 +1,7 @@
 <h1><%= @recipe.name %></h1>
 
 <% unless @recipe.link.empty? %>
-    <p>Link para a receita: <%= @recipe.link %></p>
+    <p>Link para a receita: <%= link_to @recipe.name, @recipe.link %></p>
 <% end %>
 
 <h1>Ingredientes</h1>
