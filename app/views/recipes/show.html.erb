@@ -4,10 +4,24 @@
     <p>Link para a receita: <%= link_to @recipe.name, @recipe.link %></p>
 <% end %>
 
-<h1>Ingredientes</h1>
+<div class="flex mb-4 items-end">
+    <h1>Ingredientes</h1>
+    <%= link_to "Add", new_recipe_ingredient_path(@recipe), class: "bg-green-500 text-white px-4 rounded ml-4" %>
+</div>
+<ul>
 <% @recipe.ingredients.each do |ingredient| %>
-    <%= ingredient.name %>
+    <li>
+        <%= ingredient.name %>
+        <%= link_to edit_recipe_ingredient_path(@recipe, ingredient), class: "ml-4" do %>
+            <i class="far fa-edit"></i>
+        <% end %>
+        <%= link_to recipe_ingredient_path(@recipe, ingredient), method: :delete, data: {confirm: "Tem certeza que deseja apagar o ingrediente?"} do %>
+            <i class="fas fa-trash"></i>
+        <% end %>
+    </li>
 <% end %>
+</ul>
+
 
 <div class="flex flex-col">
     <%= link_to "Adicionar para o menu", "#", class: "bg-blue-500 mr-auto px-4 py-2 rounded text-white my-4" %>

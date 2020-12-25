@@ -1,0 +1,13 @@
+<%= simple_form_for(@ingredient, url: recipe_ingredient_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :recipe_ids, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Concluir", class: "bg-green-500 text-white" %>
+  </div>
+<% end %>
