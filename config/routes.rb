@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :examples
-  resources :menus
+  resources :menus do
+    post :generate
+  end
   resources :recipes do
     resources :ingredients, except: [:index, :show]
     member do
