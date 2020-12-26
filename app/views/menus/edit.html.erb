@@ -1,0 +1,22 @@
+<%= simple_form_for(@menu) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for(:menu_recipes) do |s| %>
+        <div class="row">
+            <div class="col-6">
+                <%= to_day(s.object.day_of_the_week) %>
+                <%= s.input :day_of_the_week, as: :hidden %>
+            </div>
+            <div class="col-6">
+                <%= s.input :recipe_id, collection: Recipe.all, label: "Receita" %>
+            </div>
+        </div>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
