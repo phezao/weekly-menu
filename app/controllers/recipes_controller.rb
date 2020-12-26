@@ -31,6 +31,23 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def new_to_menu
+    @menu_recipe = MenuRecipe.new
+  end
+
+  def add_to_menu
+    
+    @menu_recipe = MenuRecipe.find_by(day_of_the_week: menu_recipe_params[:day_of_the_week])
+    
+    if @menu_recipe
+      @menu_recipe.update(menu_recipe_params)
+    else
+      MenuRecipe.create!(menu_recipe_params)
+    end
+
+    redirect_to menu_path(current_user.menu)
+  end
+
   private
 
   def set_recipe
@@ -41,6 +58,14 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(
       :name,
       :link
+    )
+  end
+
+  def menu_recipe_params
+    params.require(:menu_recipe).permit(
+      :day_of_the_week, 
+      :menu_id,
+      :recipe_id
     )
   end
 

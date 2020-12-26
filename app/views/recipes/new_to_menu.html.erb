@@ -1,0 +1,15 @@
+<h1>Adicionar receita para qual dia da semana?</h1>
+<%= simple_form_for(@menu_recipe, url: add_to_menu_recipe_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :day_of_the_week, collection: [["Domingo",1], ["Segunda", 2], ["Terça", 3], ["Quarta", 4], ["Quinta", 5], ["Sexta", 6], ["Sabado", 7]], label: false %>
+    <%= f.input :recipe_id, as: :hidden, input_html: {value: params[:id]} %>
+    <%= f.input :menu_id, as: :hidden, input_html: {value: current_user.menu.id} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Concluir", class: "bg-green-500 text-white" %>
+  </div>
+<% end %>

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :menus
   resources :recipes do
     resources :ingredients, except: [:index, :show]
+    member do
+      get :new_to_menu
+      post :add_to_menu
+    end
   end
   devise_for :users
   root to: 'pages#home'

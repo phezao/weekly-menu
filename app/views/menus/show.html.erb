@@ -3,14 +3,46 @@
 </div>
 
 
+<table>
+    <tr>
+        <th>Domingo</th>
+        <th>Segunda</th>
+        <th>Terça</th>
+    </tr>
+    <tr>
+        <td><%= @menu_recipes.where(day_of_the_week: "1").first.recipe.name if !@menu_recipes.where(day_of_the_week: "1").empty? %></td>
+        <td><%= @menu_recipes.where(day_of_the_week: "2").first.recipe.name if !@menu_recipes.where(day_of_the_week: "2").empty? %></td>
+        <td><%= @menu_recipes.where(day_of_the_week: "3").first.recipe.name if !@menu_recipes.where(day_of_the_week: "3").empty? %></td>
+    </tr>
+    <tr>
+        <th>Quarta</th>
+        <th>Quinta</th>
+        <th>Sexta</th>
+    </tr>
+    <tr>
+        <td><%= @menu_recipes.where(day_of_the_week: "4").first.recipe.name if !@menu_recipes.where(day_of_the_week: "4").empty? %></td>
+        <td><%= @menu_recipes.where(day_of_the_week: "5").first.recipe.name if !@menu_recipes.where(day_of_the_week: "5").empty? %></td>
+        <td><%= @menu_recipes.where(day_of_the_week: "6").first.recipe.name if !@menu_recipes.where(day_of_the_week: "6").empty? %></td>
+    </tr>
+    <tr>
+        <th>Sábado</th>
+    </tr>
+    <tr>
+        <td><%= @menu_recipes.where(day_of_the_week: "7").first.recipe.name if !@menu_recipes.where(day_of_the_week: "7").empty? %></td>
+    </tr>
+</table>
+
+
 <div class="flex justify-between text-center">
     <div class="w-20 text-sm bg-gray-300 rounded">Domingo</div>
     <div class="w-20 text-sm bg-gray-300 rounded">Segunda</div>
     <div class="w-20 text-sm bg-gray-300 rounded">Terça</div>
 </div>
 
+
+
 <div class="flex justify-between mb-4 text-center">
-    <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 1</div>
+    <div class="w-20 text-xs bg-gray-200 h-12 pt-2"></div>
     <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 2</div>
     <div class="w-20 text-xs bg-gray-200 h-12 pt-2">receita 3</div>
 </div>
@@ -36,7 +68,7 @@
 
     
     <% if @menu_recipes %>
-        <%= link_to "Editar menu", "#", class: "text-xs mb-4 mx-2 bg-yellow-400 rounded-md sm:h-10 py-2 px-4 hover:no-underline hover:bg-yellow-500 hover:text-black"  %>
+        <%= link_to "Editar menu", edit_menu_path, class: "text-xs mb-4 mx-2 bg-yellow-400 rounded-md sm:h-10 py-2 px-4 hover:no-underline hover:bg-yellow-500 hover:text-black"  %>
 
         <%= link_to "Lista de supermercado", "#", class: "text-xs mb-4 bg-indigo-400 rounded-md sm:h-10 py-2 px-4 text-white hover:no-underline hover:bg-indigo-500"  %>        
     <% end %>
