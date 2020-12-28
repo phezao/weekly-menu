@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :examples
   resources :menus do
     post :generate
+    resources :supermarket_ingredients, only: [:index]
   end
   resources :recipes do
     resources :ingredients, except: [:index, :show]

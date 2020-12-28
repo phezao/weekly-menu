@@ -98,6 +98,6 @@
     <% unless @menu_recipes.empty? %>
         <%= link_to "Editar menu", edit_menu_path, class: "text-xs mb-4 mx-2 bg-yellow-400 rounded-md sm:h-10 py-2 px-4 hover:no-underline hover:bg-yellow-500 hover:text-black"  %>
 
-        <%= link_to "Lista de supermercado", "#", class: "text-xs mb-4 bg-indigo-400 rounded-md sm:h-10 py-2 px-4 text-white hover:no-underline hover:bg-indigo-500"  %>        
+        <%= link_to "Lista de supermercado", menu_supermarket_ingredients_path(params[:id]), class: "text-xs mb-4 bg-indigo-400 rounded-md sm:h-10 py-2 px-4 text-white hover:no-underline hover:bg-indigo-500"  %>        
     <% end %>
     </div>
