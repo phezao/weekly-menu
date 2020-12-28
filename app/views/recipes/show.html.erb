@@ -1,7 +1,7 @@
 <h1><%= @recipe.name %></h1>
 
 <% unless @recipe.link.empty? %>
-    <p>Link para a receita: <%= link_to @recipe.name, @recipe.link %></p>
+    <p><%= link_to "link", @recipe.link %></p>
 <% end %>
 
 <div class="flex mb-4 items-end">
