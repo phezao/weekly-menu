@@ -2,7 +2,10 @@
     <div class="mb-4">
         <p class="font-bold"><%= recipe.name %></p>
         <% recipe.ingredients.each do |ingredient| %>
-            <p><%= ingredient.name %></p>
+            <p>
+                <input type="checkbox">
+                <%= ingredient.name %>
+            </p>
         <% end %>
     </div>
 <% end %>
