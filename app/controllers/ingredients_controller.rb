@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
     def new
         @ingredient = Ingredient.new
     end
-    
+
 
     def create
         own = Ingredient.find_by(name: ingredient_params[:name])
@@ -20,7 +20,7 @@ class IngredientsController < ApplicationController
     def edit
         @ingredient = Ingredient.find(params[:id])
     end
-    
+
     def update
         @ingredient.update(ingredient_params)
     end
@@ -31,13 +31,13 @@ class IngredientsController < ApplicationController
     end
 
     private
-    
+
     def ingredient_params
         params.require(:ingredient).permit(
             :name
         )
     end
-    
+
     def set_ingredient
         @ingredient = Ingredient.find(params[:id])
     end
