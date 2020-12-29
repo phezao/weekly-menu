@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   def index
+    @menu = Menu.find_by(user_id: current_user.id) || Menu.create(user_id: current_user.id)
     @recipes = Recipe.where(user: current_user)
   end
 
@@ -19,7 +20,7 @@ class RecipesController < ApplicationController
 
   def edit
   end
-  
+
 
   def update
     @recipe.update(recipe_params)
@@ -36,9 +37,9 @@ class RecipesController < ApplicationController
   end
 
   def add_to_menu
-    
+
     @menu_recipe = MenuRecipe.find_by(day_of_the_week: menu_recipe_params[:day_of_the_week])
-    
+
     if @menu_recipe
       @menu_recipe.update(menu_recipe_params)
     else
@@ -63,7 +64,7 @@ class RecipesController < ApplicationController
 
   def menu_recipe_params
     params.require(:menu_recipe).permit(
-      :day_of_the_week, 
+      :day_of_the_week,
       :menu_id,
       :recipe_id
     )

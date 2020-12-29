@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
     def show
+        @menu = Menu.find_by(user_id: current_user.id) || Menu.create(user_id: current_user.id)
         @menu_recipes = current_user.menu.menu_recipes
     end
 
